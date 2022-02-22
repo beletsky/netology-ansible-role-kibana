@@ -2,6 +2,8 @@ galaxy_info:
   author: Andrey Beletsky
   description: Install Kibana
   company: Software Product Group
+  namespace: ppr_ru
+  role_name: kibana_role
 
   license: MIT
 
