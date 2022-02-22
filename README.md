@@ -1,12 +1,18 @@
 Kibana Role
 ===========
 
-The role installs Kibana on RHEL-like Linux nodes.
+The role installs Kibana on specified nodes.
 
 Requirements
 ------------
 
-Only RHEL-like Linux systems are currently supported.
+RHEL- and Debian-like Linux systems are currently supported.
+
+Tested on
+---------
+- CentOS 7
+- Ubuntu
+- Debian
 
 Role Variables
 --------------
@@ -21,7 +27,8 @@ Example Playbook
 
     - hosts: all
       roles:
-         - kibana
+        - role: kibana
+          elasticsearch_host: localhost      
 
 Notes
 -----

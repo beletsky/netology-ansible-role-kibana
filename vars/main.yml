@@ -1,2 +1,2 @@
 ---
-supported_systems: ['CentOS']
+supported_systems: ['CentOS', 'Ubuntu', 'Debian']
