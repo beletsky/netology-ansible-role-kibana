@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: true
+  tasks:
+  - name: Check Kibana config file
+    ansible.builtin.stat:
+      path: /etc/kibana/kibana.yml
+  - name: Stat Kibana log directory
+    ansible.builtin.stat:
+      path: /var/log/kibana
+    register: kibana_log_directory
+  - name: Check Kibana log directory
+    assert:
+      that: kibana_log_directory.stat.isdir is defined and kibana_log_directory.stat.isdir
