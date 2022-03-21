@@ -3,17 +3,23 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                git credentialsId: 'GitHub-beletsky', url: 'https://github.com/beletsky/netology-ansible-role-kibana'
+                dir('ansible-role-kibana') {
+                    git credentialsId: 'GitHub-beletsky', url: 'https://github.com/beletsky/netology-ansible-role-kibana'
+                }
             }
         }
         stage('install requirements') {
             steps {
-                sh 'pip3 install -r test-requirements.txt'
+                dir('ansible-role-kibana') {
+                    sh 'pip3 install -r test-requirements.txt'
+                }
             }
         }
         stage('run molecule') {
             steps {
-                sh 'molecule test'
+                dir('ansible-role-kibana') {
+                    sh 'molecule test'
+                }
             }
         }
     }
